@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GEN_SUPPLY</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --accent-color: #000000;
+      --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-image: url('assets/header-background.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .project {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .project img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: none;
+    }
+
+    .project-info {
+      display: none;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 800px;
+      max-height: 80%;
+      overflow-y: auto;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-info img {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GEN_SUPPLY</h1>
+  </header>
+
+  <!-- Project Thumbnails -->
+  <section class="projects">
+    <div class="project" onclick="openProject('project1')">
+      <img src="assets/project1-thumb.jpg" alt="Project 1" />
+    </div>
+    <div class="project" onclick="openProject('project2')">
+      <img src="assets/project2-thumb.jpg" alt="Project 2" />
+    </div>
+    <!-- Add more projects as needed -->
+  </section>
+
+  <!-- Lightbox Overlays -->
+  <div class="overlay" id="overlay" onclick="closeProject()"></div>
+
+  <div class="project-info" id="project1">
+    <button class="close-btn" onclick="closeProject()">×</button>
+    <h2>Project Title 1</h2>
+    <img src="assets/project1-image1.jpg" alt="Image 1" />
+    <p>Description of the architectural rendering or product visualization.</p>
+  </div>
+
+  <div class="project-info" id="project2">
+    <button class="close-btn" onclick="closeProject()">×</button>
+    <h2>Project Title 2</h2>
+    <img src="assets/project2-image1.jpg" alt="Image 1" />
+    <p>Description for this visualization project.</p>
+  </div>
+
+  <script>
+    function openProject(id) {
+      document.getElementById(id).style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeProject() {
+      document.querySelectorAll('.project-info').forEach(el => el.style.display = 'none');
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
