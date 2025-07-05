@@ -58,7 +58,7 @@ header p {
 }
 
 .gallery a:hover {
-  transform: scale(5);
+  transform: scale(1.03);
 }
 
 .gallery img {
