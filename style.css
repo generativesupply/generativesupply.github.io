@@ -1,14 +1,16 @@
 /* ---------------- GLOBAL FONT & COLORS ---------------- */
-body {
-  font-family: 'Courier Prime', monospace; /* Change font here */
-  background-color: #ffffff; /* Page background */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+body, h1, h2, h3, a, p, span, button, nav {
+  font-family: 'Courier Prime', monospace;
   color: #111111; /* Default text color */
+  margin: 0;
+  padding: 0;
 }
 
-/* Header styling */
-.archive-header {
-  background-color: #ffffff;
-  color: #111111;
+/* Headings */
+h1, h2, h3 {
+  font-weight: 700;
 }
 
 /* Links */
@@ -38,19 +40,27 @@ a:hover {
 
 /* ---------------- LIGHTBOX ---------------- */
 #lightbox {
-  display: flex;            /* flex container for centering */
-  align-items: center;
-  justify-content: center;
+  display: none; /* Hidden by default */
   position: fixed;
   inset: 0;
   background-color: rgba(0,0,0,0.9);
   z-index: 50;
-  display: none;            /* hidden by default, JS toggles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #lightbox img {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 80%;
+}
+
+#lightbox-caption {
+  color: white;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.125rem;
 }
 
 #lightbox button {
@@ -89,12 +99,14 @@ a:hover {
   100% { transform: translateX(-50%); }
 }
 
-/* ---------------- HEADINGS ---------------- */
-h1, h2, h3 {
+/* ---------------- HEADER / NAV ---------------- */
+nav, .archive-header {
+  background-color: #ffffff;
+  color: #111111;
   font-family: 'Courier Prime', monospace;
 }
 
-/* ---------------- OPTIONAL: REMOVE OUTLINE ON BUTTON FOCUS ---------------- */
+/* Optional: remove outline on buttons */
 button:focus {
   outline: none;
 }
