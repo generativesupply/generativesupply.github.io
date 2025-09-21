@@ -4,49 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEN_SUPPLY — Archive</title>
+
+  <!-- ✅ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-gray-50">
 
   <!-- Header -->
-  <header class="archive-header p-6 sticky top-0 z-50 shadow-md flex justify-between items-center">
-    <a href="index.html" class="text-3xl font-bold hover:text-blue-600 transition">GEN_SUPPLY</a>
-    <div>
-      <h1 class="text-xl font-semibold">Project Archive</h1>
-      <p class="text-gray-600 text-sm">Organized by year and field</p>
+  <header class="archive-header fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
+      <nav>
+        <a href="archive.html" class="hover:text-gray-600">Archive</a>
+      </nav>
     </div>
   </header>
 
   <!-- Archive Grid -->
-  <main class="container mx-auto p-6">
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6">2024</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <img src="assets/preview1.jpg" alt="Architectural Visualization" class="archive-img cursor-pointer" data-index="0">
-        <img src="assets/preview2.jpg" alt="Product Modeling" class="archive-img cursor-pointer" data-index="1">
-        <img src="assets/preview3.jpg" alt="Animated Commercial" class="archive-img cursor-pointer" data-index="2">
-      </div>
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-6">2023</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <img src="assets/preview4.jpg" alt="VR Experience" class="archive-img cursor-pointer" data-index="3">
-        <img src="assets/preview5.jpg" alt="Character Design" class="archive-img cursor-pointer" data-index="4">
-        <img src="assets/preview6.jpg" alt="Interactive Showroom" class="archive-img cursor-pointer" data-index="5">
-      </div>
-    </section>
+  <main class="pt-24 pb-20 container mx-auto px-6">
+    <h1 class="text-3xl font-bold mb-10">Project Archive</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <img src="assets/preview1.jpg" alt="Architectural Visualization" class="archive-img" data-index="0">
+      <img src="assets/preview2.jpg" alt="Product Modeling" class="archive-img" data-index="1">
+      <img src="assets/preview3.jpg" alt="Animated Commercial" class="archive-img" data-index="2">
+      <img src="assets/preview4.jpg" alt="VR Experience" class="archive-img" data-index="3">
+      <img src="assets/preview5.jpg" alt="Character Design" class="archive-img" data-index="4">
+      <img src="assets/preview6.jpg" alt="Interactive Showroom" class="archive-img" data-index="5">
+    </div>
   </main>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex flex-col items-center justify-center z-50">
-    <button id="closeBtn" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
-    <button id="prevBtn" class="absolute left-4 text-white text-3xl">&larr;</button>
-    <img id="lightbox-img" class="max-h-[80%] max-w-[90%]" src="">
-    <div id="lightbox-caption" class="text-white mt-4 text-center text-lg"></div>
-    <button id="nextBtn" class="absolute right-4 text-white text-3xl">&rarr;</button>
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+    <button id="closeBtn" class="absolute top-6 right-6 text-white text-3xl">&times;</button>
+    <button id="prevBtn" class="absolute left-6 text-white text-3xl">&#10094;</button>
+    <div class="text-center">
+      <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-[90vw]">
+      <p id="lightbox-caption" class="text-white mt-4"></p>
+    </div>
+    <button id="nextBtn" class="absolute right-6 text-white text-3xl">&#10095;</button>
   </div>
 
   <!-- Scrolling Contact Info -->
@@ -60,7 +64,7 @@
     </div>
   </div>
 
-  <!-- Archive Lightbox Script -->
+  <!-- Scripts -->
   <script>
     const images = [
       { src: "assets/preview1.jpg", title: "Architectural Visualization", field: "3D Visualization" },
@@ -92,20 +96,29 @@
       lightboxImg.src = image.src;
       lightboxCaption.textContent = `${image.title} — ${image.field}`;
       lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
     }
 
-    closeBtn.addEventListener('click', () => lightbox.classList.add('hidden'));
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    });
+
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       openLightbox(currentIndex);
     });
+
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % images.length;
       openLightbox(currentIndex);
     });
 
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.add('hidden');
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -113,7 +126,8 @@
       if (e.key === "ArrowLeft") prevBtn.click();
       if (e.key === "ArrowRight") nextBtn.click();
     });
-  </script>
 
+    feather.replace();
+  </script>
 </body>
 </html>
