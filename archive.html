@@ -20,7 +20,6 @@
 
   <!-- Archive Grid -->
   <main class="container mx-auto p-6">
-    <!-- Example for 2024 -->
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-6">2024</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -30,7 +29,6 @@
       </div>
     </section>
 
-    <!-- Example for 2023 -->
     <section class="mb-12">
       <h2 class="text-2xl font-semibold mb-6">2023</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,11 +40,12 @@
   </main>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
-    <button id="prevBtn" class="absolute left-4 text-white text-3xl">&larr;</button>
-    <img id="lightbox-img" class="max-h-full max-w-full" src="">
-    <button id="nextBtn" class="absolute right-4 text-white text-3xl">&rarr;</button>
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex flex-col items-center justify-center z-50">
     <button id="closeBtn" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+    <button id="prevBtn" class="absolute left-4 text-white text-3xl">&larr;</button>
+    <img id="lightbox-img" class="max-h-[80%] max-w-[90%]" src="">
+    <div id="lightbox-caption" class="text-white mt-4 text-center text-lg"></div>
+    <button id="nextBtn" class="absolute right-4 text-white text-3xl">&rarr;</button>
   </div>
 
   <!-- Scrolling Contact Info -->
@@ -63,16 +62,17 @@
   <!-- Lightbox Script -->
   <script>
     const images = [
-      "assets/preview1.jpg",
-      "assets/preview2.jpg",
-      "assets/preview3.jpg",
-      "assets/preview4.jpg",
-      "assets/preview5.jpg",
-      "assets/preview6.jpg"
+      { src: "assets/preview1.jpg", title: "Architectural Visualization", field: "3D Visualization" },
+      { src: "assets/preview2.jpg", title: "Product Modeling", field: "3D Modelling" },
+      { src: "assets/preview3.jpg", title: "Animated Commercial", field: "CG Animation" },
+      { src: "assets/preview4.jpg", title: "VR Experience", field: "Real Time / Game Engine" },
+      { src: "assets/preview5.jpg", title: "Character Design", field: "3D Modelling" },
+      { src: "assets/preview6.jpg", title: "Interactive Showroom", field: "Real Time / Game Engine" }
     ];
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.getElementById('closeBtn');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -82,33 +82,35 @@
     document.querySelectorAll('.archive-img').forEach(img => {
       img.addEventListener('click', () => {
         currentIndex = parseInt(img.getAttribute('data-index'));
-        lightboxImg.src = images[currentIndex];
-        lightbox.classList.remove('hidden');
+        openLightbox(currentIndex);
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.add('hidden');
-    });
+    function openLightbox(index) {
+      const image = images[index];
+      lightboxImg.src = image.src;
+      lightboxCaption.textContent = `${image.title} — ${image.field}`;
+      lightbox.classList.remove('hidden');
+    }
+
+    closeBtn.addEventListener('click', () => lightbox.classList.add('hidden'));
 
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
-      lightboxImg.src = images[currentIndex];
+      openLightbox(currentIndex);
     });
 
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % images.length;
-      lightboxImg.src = images[currentIndex];
+      openLightbox(currentIndex);
     });
 
-    // Close lightbox on click outside image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.classList.add('hidden');
     });
 
-    // Optional: close on Esc key
     document.addEventListener('keydown', (e) => {
-      if (e.key === "Escape") lightbox.classList.add('hidden');
+      if (e.key === "Escape") closeBtn.click();
       if (e.key === "ArrowLeft") prevBtn.click();
       if (e.key === "ArrowRight") nextBtn.click();
     });
