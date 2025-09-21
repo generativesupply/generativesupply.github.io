@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEN_SUPPLY — Archive</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
@@ -94,12 +95,10 @@
     }
 
     closeBtn.addEventListener('click', () => lightbox.classList.add('hidden'));
-
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       openLightbox(currentIndex);
     });
-
     nextBtn.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % images.length;
       openLightbox(currentIndex);
