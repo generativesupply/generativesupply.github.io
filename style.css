@@ -15,7 +15,7 @@ a {
 
 /* Hover link color */
 a:hover {
-    color: #3b82f6; /* Tailwind blue-500 */
+    color: #880808; /* Tailwind blue-500 */
     transition: color 0.3s ease;
 }
 
