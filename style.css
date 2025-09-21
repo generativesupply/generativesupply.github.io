@@ -27,7 +27,7 @@ a:hover {
 }
 
 .project-item p {
-    color: #6b7280; /* Tailwind gray-500 */
+    color: #880808; /* Tailwind gray-500 */
 }
 
 .project-item:hover h3 {
