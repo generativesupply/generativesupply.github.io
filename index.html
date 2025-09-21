@@ -4,57 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEN_SUPPLY — Home</title>
+
+  <!-- ✅ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Animations & Icons -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 <body class="antialiased">
-
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 p-6 flex justify-between items-center">
-    <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
-    <div class="hidden md:flex space-x-8">
-      <a href="archive.html" class="hover:text-gray-600">Archive</a>
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="archive.html" class="hover:text-gray-600">Archive</a>
+      </div>
+      <button class="md:hidden">
+        <i data-feather="menu"></i>
+      </button>
     </div>
-    <button class="md:hidden">
-      <i data-feather="menu"></i>
-    </button>
   </nav>
 
-  <!-- Sidebar & Preview -->
+  <!-- Sidebar and Preview Layout -->
   <div class="flex h-screen pt-20">
-    <!-- Sidebar -->
+    <!-- Sidebar with Projects List -->
     <div class="w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
       <h2 class="text-2xl font-bold mb-8">Service</h2>
       <ul class="space-y-6">
         <li class="project-item cursor-pointer" data-project="1">
           <h3 class="text-lg font-medium">Architectural Visualization</h3>
-          <p class="text-sm text-gray-500">3D visualization</p>
+          <p class="text-sm">3D visualization</p>
         </li>
         <li class="project-item cursor-pointer" data-project="2">
           <h3 class="text-lg font-medium">Product Modeling</h3>
-          <p class="text-sm text-gray-500">3D modelling</p>
+          <p class="text-sm">3D modelling</p>
         </li>
         <li class="project-item cursor-pointer" data-project="3">
           <h3 class="text-lg font-medium">Animated Commercial</h3>
-          <p class="text-sm text-gray-500">CG Animation</p>
+          <p class="text-sm">CG Animation</p>
         </li>
         <li class="project-item cursor-pointer" data-project="4">
           <h3 class="text-lg font-medium">VR Experience</h3>
-          <p class="text-sm text-gray-500">Real time / Game Engine</p>
+          <p class="text-sm">Real time / Game Engine</p>
         </li>
         <li class="project-item cursor-pointer" data-project="5">
           <h3 class="text-lg font-medium">Character Design</h3>
-          <p class="text-sm text-gray-500">3D modelling</p>
+          <p class="text-sm">3D modelling</p>
         </li>
         <li class="project-item cursor-pointer" data-project="6">
           <h3 class="text-lg font-medium">Interactive Showroom</h3>
-          <p class="text-sm text-gray-500">Real time / Game Engine</p>
+          <p class="text-sm">Real time / Game Engine</p>
         </li>
       </ul>
     </div>
 
-    <!-- Preview -->
+    <!-- Main Preview Area -->
     <div class="flex-1 flex items-center justify-center bg-gray-50">
       <div class="max-w-4xl w-full">
         <div class="project-preview">
@@ -77,7 +89,7 @@
     </div>
   </div>
 
-  <!-- JS for project preview -->
+  <!-- Scripts -->
   <script>
     const images = [
       'assets/preview1.jpg',
@@ -95,8 +107,8 @@
       });
     });
 
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
     feather.replace();
   </script>
-
 </body>
 </html>
