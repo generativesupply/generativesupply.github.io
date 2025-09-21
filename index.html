@@ -1,154 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEN_SUPPLY — Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
-        body {
-            font-family: 'Courier Prime', monospace;
-            background-color: #ffffff;
-            color: #111;
-        }
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .star-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEN_SUPPLY — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+    body {
+      font-family: 'Courier Prime', monospace;
+      background-color: #ffffff;
+      color: #111;
+    }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .star-icon { animation: float 3s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body class="antialiased">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-4xl font-bold">GEN_SUPPLY</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="archive.html" class="hover:text-gray-600">Archive</a>
-            </div>
-            <button class="md:hidden">
-                <i data-feather="menu"></i>
-            </button>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-4xl font-bold">GEN_SUPPLY</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="archive.html" class="hover:text-gray-600">Archive</a>
+      </div>
+      <button class="md:hidden">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Sidebar and Preview Layout -->
-    <div class="flex h-screen pt-20">
-        <!-- Sidebar with Projects List -->
-        <div class="w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
-            <h2 class="text-2xl font-bold mb-8 hovered-element">service</h2>
-            <ul class="space-y-6">
-                <li class="project-item cursor-pointer" data-project="1">
-                    <h3 class="text-lg font-medium">Architectural Visualization</h3>
-                    <p class="text-sm text-gray-500">3D visualization</p>
-                </li>
-                <li class="project-item cursor-pointer" data-project="2">
-                    <h3 class="text-lg font-medium">Product Modeling</h3>
-                    <p class="text-sm text-gray-500">3D modelling</p>
-                </li>
-                <li class="project-item cursor-pointer" data-project="3">
-                    <h3 class="text-lg font-medium">Animated Commercial</h3>
-                    <p class="text-sm text-gray-500">CG Animation</p>
-                </li>
-                <li class="project-item cursor-pointer" data-project="4">
-                    <h3 class="text-lg font-medium">VR Experience</h3>
-                    <p class="text-sm text-gray-500">Real time / Game Engine</p>
-                </li>
-                <li class="project-item cursor-pointer" data-project="5">
-                    <h3 class="text-lg font-medium">Character Design</h3>
-                    <p class="text-sm text-gray-500">3D modelling</p>
-                </li>
-                <li class="project-item cursor-pointer" data-project="6">
-                    <h3 class="text-lg font-medium">Interactive Showroom</h3>
-                    <p class="text-sm text-gray-500">Real time / Game Engine</p>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Main Preview Area -->
-        <div class="flex-1 flex items-center justify-center bg-gray-50">
-            <div class="max-w-4xl w-full">
-                <div class="project-preview">
-                    <img id="preview-image" src="http://static.photos/white/1024x576/1" 
-                         alt="Project Preview" 
-                         class="w-full h-[600px] object-cover shadow-xl bg-gray-100">
-                </div>
-            </div>
-        </div>
+  <!-- Sidebar and Preview Layout -->
+  <div class="flex h-screen pt-20">
+    <!-- Sidebar -->
+    <div class="w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
+      <h2 class="text-2xl font-bold mb-8 hovered-element">service</h2>
+      <ul class="space-y-6">
+        <li class="project-item cursor-pointer" data-project="1">
+          <h3 class="text-lg font-medium">Architectural Visualization</h3>
+          <p class="text-sm text-gray-500">3D visualization</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="2">
+          <h3 class="text-lg font-medium">Product Modeling</h3>
+          <p class="text-sm text-gray-500">3D modelling</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="3">
+          <h3 class="text-lg font-medium">Animated Commercial</h3>
+          <p class="text-sm text-gray-500">CG Animation</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="4">
+          <h3 class="text-lg font-medium">VR Experience</h3>
+          <p class="text-sm text-gray-500">Real time / Game Engine</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="5">
+          <h3 class="text-lg font-medium">Character Design</h3>
+          <p class="text-sm text-gray-500">3D modelling</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="6">
+          <h3 class="text-lg font-medium">Interactive Showroom</h3>
+          <p class="text-sm text-gray-500">Real time / Game Engine</p>
+        </li>
+      </ul>
     </div>
 
-    <!-- Scrolling Contact Info -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
-        <div class="scrolling-text whitespace-nowrap">
-            <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
-            <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
-            <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
-            <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
-            <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
+    <!-- Main Preview Area -->
+    <div class="flex-1 flex items-center justify-center bg-gray-50">
+      <div class="max-w-4xl w-full">
+        <div class="project-preview">
+          <img id="preview-image" 
+               src="assets/preview1.jpg" 
+               alt="Project Preview" 
+               class="w-full h-[600px] object-cover shadow-xl bg-gray-100">
         </div>
+      </div>
     </div>
+  </div>
 
-    <style>
-        .project-item:hover {
-            color: #3b82f6;
-        }
-        .scrolling-text {
-            display: inline-block;
-            animation: scroll 20s linear infinite;
-            font-family: 'Courier Prime', monospace;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        /* Hide scrollbar */
-        ::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
+  <!-- Scrolling Contact Info -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
+    <div class="scrolling-text whitespace-nowrap">
+      <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
+      <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
+      <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
+      <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
+      <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
+    </div>
+  </div>
 
-    <script>
-        document.querySelectorAll('.project-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const projectId = this.getAttribute('data-project');
-                const images = [
-                    'http://static.photos/white/1024x576/1',
-                    'http://static.photos/white/1024x576/2',
-                    'http://static.photos/white/1024x576/3', 
-                    'http://static.photos/white/1024x576/4',
-                    'http://static.photos/white/1024x576/5',
-                    'http://static.photos/white/1024x576/6'
-                ];
-                document.getElementById('preview-image').src = images[projectId-1];
-            });
-        });
-    </script>
-    </main>
+  <style>
+    .project-item:hover { color: #3b82f6; }
+    .scrolling-text {
+      display: inline-block;
+      animation: scroll 20s linear infinite;
+      font-family: 'Courier Prime', monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
 
+  <script>
+    document.querySelectorAll('.project-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        // Auto-generate filename: preview{ID}.jpg
+        const imagePath = `assets/preview${projectId}.jpg`;
+        document.getElementById('preview-image').src = imagePath;
+      });
+    });
+  </script>
 
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        feather.replace();
-    </script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    feather.replace();
+  </script>
 </body>
 </html>
