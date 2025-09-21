@@ -1,112 +1,107 @@
-/* ---------------- GLOBAL FONT & COLORS ---------------- */
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
-
-body, h1, h2, h3, a, p, span, button, nav {
-  font-family: 'Courier Prime', monospace;
-  color: #111111; /* Default text color */
-  margin: 0;
-  padding: 0;
-}
-
-/* Headings */
-h1, h2, h3 {
-  font-weight: 700;
+/* -------------------------------
+   Base Font and Colors
+---------------------------------*/
+body {
+    font-family: 'Courier Prime', monospace;
+    background-color: #ffffff;
+    color: #111111;
 }
 
 /* Links */
 a {
-  color: #111111;
-  text-decoration: none;
+    text-decoration: none;
+    color: inherit;
 }
+
+/* Hover link color */
 a:hover {
-  color: #880808; /* Tailwind blue */
+    color: #3b82f6; /* Tailwind blue-500 */
+    transition: color 0.3s ease;
 }
 
-/* ---------------- ARCHIVE CARDS ---------------- */
-.archive-card {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
-  transition: none; /* No hover animation */
-  /* Sharp corners, no border-radius */
+/* -------------------------------
+   Sidebar Project Items
+---------------------------------*/
+.project-item h3 {
+    font-weight: 700;
 }
 
+.project-item p {
+    color: #6b7280; /* Tailwind gray-500 */
+}
+
+.project-item:hover h3 {
+    color: #3b82f6;
+}
+
+/* -------------------------------
+   Project Preview
+---------------------------------*/
+.project-preview img {
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+/* -------------------------------
+   Archive Grid
+---------------------------------*/
 .archive-img {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Square images */
-  object-fit: cover;   /* Crop image nicely */
-  cursor: pointer;     /* Indicate clickable */
+    width: 100%;
+    aspect-ratio: 1 / 1; /* square images */
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 0; /* remove rounded corners */
 }
 
-/* ---------------- LIGHTBOX ---------------- */
-#lightbox {
-  display: none; /* Hidden by default */
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0,0,0,0.9);
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* -------------------------------
+   Archive Lightbox
+---------------------------------*/
 #lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-}
-
-#lightbox-caption {
-  color: white;
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 1.125rem;
+    max-width: 90%;
+    max-height: 80%;
 }
 
 #lightbox button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  font-size: 2rem;
-  position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-#closeBtn {
-  top: 1rem;
-  right: 1rem;
+/* -------------------------------
+   Header
+---------------------------------*/
+header.archive-header a,
+nav a {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
 }
 
-#prevBtn {
-  left: 1rem;
-}
-
-#nextBtn {
-  right: 1rem;
-}
-
-/* ---------------- SCROLLING CONTACT INFO ---------------- */
+/* -------------------------------
+   Scrolling Contact Info
+---------------------------------*/
 .scrolling-text {
-  display: inline-block;
-  animation: scroll 20s linear infinite;
-  font-family: 'Courier Prime', monospace;
-  font-weight: 700;
-  letter-spacing: 1px;
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Courier Prime', monospace;
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* ---------------- HEADER / NAV ---------------- */
-nav, .archive-header {
-  background-color: #ffffff;
-  color: #111111;
-  font-family: 'Courier Prime', monospace;
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
 }
 
-/* Optional: remove outline on buttons */
-button:focus {
-  outline: none;
+/* -------------------------------
+   Optional: Easy Color Variables
+---------------------------------*/
+:root {
+    --primary-color: #3b82f6; /* blue-500 */
+    --text-color: #111111;
+    --background-color: #ffffff;
 }
