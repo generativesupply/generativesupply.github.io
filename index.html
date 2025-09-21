@@ -14,7 +14,6 @@
   <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 p-6 flex justify-between items-center">
     <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
     <div class="hidden md:flex space-x-8">
-      <!-- Archive now opens in the same window -->
       <a href="archive.html" class="hover:text-gray-600">Archive</a>
     </div>
     <button class="md:hidden">
@@ -92,12 +91,10 @@
     document.querySelectorAll('.project-item').forEach(item => {
       item.addEventListener('click', function() {
         const projectId = parseInt(this.getAttribute('data-project'));
-        document.getElementById('preview-image').src = images[projectId-1];
+        document.getElementById('preview-image').src = images[projectId - 1];
       });
     });
-  </script>
 
-  <script>
     feather.replace();
   </script>
 
