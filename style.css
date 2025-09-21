@@ -12,7 +12,7 @@
     --font-primary: 'Courier Prime', monospace;  /* body */
     --font-heading: 'Courier Prime', monospace;  /* header (customizable later) */
 
-    --primary-color: #3b82f6; /* Tailwind blue-500 */
+    --primary-color: #EE4B2B; /* Tailwind blue-500 */
     --text-color: #111111;
     --background-color: #ffffff;
 }
@@ -56,7 +56,7 @@ header.archive-header a {
 
 .project-item p {
     font-family: var(--font-primary);
-    color: #6b7280;
+    color: #EE4B2B;
 }
 
 .project-item:hover h3 {
