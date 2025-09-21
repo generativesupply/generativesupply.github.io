@@ -9,8 +9,8 @@
 ---------------------------------*/
 :root {
     --font-primary: 'Courier Prime', monospace;
-    --font-secondary: 'Roboto', sans-serif;
-    --font-heading: 'Montserrat', sans-serif;
+    --font-secondary: 'Courier Prime', sans-serif;
+    --font-heading: 'Courier Prime', sans-serif;
 
     --primary-color: #880808; /* Tailwind blue-500 */
     --text-color: #111111;
