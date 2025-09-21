@@ -5,31 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEN_SUPPLY — Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 <body class="antialiased">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
-      <div class="hidden md:flex space-x-8">
-        <a href="archive.html" target="_blank" class="hover:text-gray-600">Archive</a>
-      </div>
-      <button class="md:hidden">
-        <i data-feather="menu"></i>
-      </button>
+  <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 p-6 flex justify-between items-center">
+    <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
+    <div class="hidden md:flex space-x-8">
+      <a href="archive.html" class="hover:text-gray-600">Archive</a>
     </div>
+    <button class="md:hidden">
+      <i data-feather="menu"></i>
+    </button>
   </nav>
 
-  <!-- Sidebar and Preview Layout -->
+  <!-- Sidebar & Preview -->
   <div class="flex h-screen pt-20">
-    <!-- Sidebar -->
     <div class="w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
-      <h2 class="text-2xl font-bold mb-8 hovered-element">Service</h2>
+      <h2 class="text-2xl font-bold mb-8">Service</h2>
       <ul class="space-y-6">
         <li class="project-item cursor-pointer" data-project="1">
           <h3 class="text-lg font-medium">Architectural Visualization</h3>
@@ -58,12 +53,10 @@
       </ul>
     </div>
 
-    <!-- Main Preview Area -->
     <div class="flex-1 flex items-center justify-center bg-gray-50">
       <div class="max-w-4xl w-full">
         <div class="project-preview">
-          <img id="preview-image" 
-               src="assets/preview1.jpg" 
+          <img id="preview-image" src="assets/preview1.jpg" 
                alt="Project Preview" 
                class="w-full h-[600px] object-cover shadow-xl bg-gray-100">
         </div>
@@ -83,20 +76,26 @@
   </div>
 
   <script>
+    const images = [
+      'assets/preview1.jpg',
+      'assets/preview2.jpg',
+      'assets/preview3.jpg',
+      'assets/preview4.jpg',
+      'assets/preview5.jpg',
+      'assets/preview6.jpg'
+    ];
+
     document.querySelectorAll('.project-item').forEach(item => {
       item.addEventListener('click', function() {
-        const projectId = this.getAttribute('data-project');
-        const imagePath = `assets/preview${projectId}.jpg`;
-        document.getElementById('preview-image').src = imagePath;
+        const projectId = parseInt(this.getAttribute('data-project'));
+        document.getElementById('preview-image').src = images[projectId-1];
       });
     });
+  </script>
 
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
+  <script>
     feather.replace();
   </script>
+
 </body>
 </html>
