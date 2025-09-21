@@ -1,29 +1,10 @@
 /* -------------------------------
-   Google Fonts Import
-   (Add or change fonts here)
----------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
-
-/* -------------------------------
-   Font & Color Variables
----------------------------------*/
-:root {
-    --font-primary: 'Courier Prime', monospace;
-    --font-secondary: 'Courier Prime', sans-serif;
-    --font-heading: 'Courier Prime', sans-serif;
-
-    --primary-color: #880808; /* Tailwind blue-500 */
-    --text-color: #111111;
-    --background-color: #ffffff;
-}
-
-/* -------------------------------
-   Base Styles
+   Base Font and Colors
 ---------------------------------*/
 body {
-    font-family: var(--font-primary);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: 'Courier Prime', monospace;
+    background-color: #ffffff;
+    color: #111111;
 }
 
 /* Links */
@@ -32,35 +13,25 @@ a {
     color: inherit;
 }
 
+/* Hover link color */
 a:hover {
-    color: var(--primary-color);
+    color: #3b82f6; /* Tailwind blue-500 */
     transition: color 0.3s ease;
-}
-
-/* -------------------------------
-   Navigation & Header
----------------------------------*/
-nav a,
-header.archive-header a {
-    font-family: var(--font-heading);
-    font-weight: 700;
 }
 
 /* -------------------------------
    Sidebar Project Items
 ---------------------------------*/
 .project-item h3 {
-    font-family: var(--font-heading);
     font-weight: 700;
 }
 
 .project-item p {
-    font-family: var(--font-secondary);
-    color: #880808; /* Tailwind gray-500 */
+    color: #6b7280; /* Tailwind gray-500 */
 }
 
 .project-item:hover h3 {
-    color: var(--primary-color);
+    color: #3b82f6;
 }
 
 /* -------------------------------
@@ -79,7 +50,7 @@ header.archive-header a {
     aspect-ratio: 1 / 1; /* square images */
     object-fit: cover;
     cursor: pointer;
-    border-radius: 0; /* no rounded corners */
+    border-radius: 0; /* remove rounded corners */
 }
 
 /* -------------------------------
@@ -97,6 +68,15 @@ header.archive-header a {
 }
 
 /* -------------------------------
+   Header
+---------------------------------*/
+header.archive-header a,
+nav a {
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+}
+
+/* -------------------------------
    Scrolling Contact Info
 ---------------------------------*/
 .scrolling-text {
@@ -104,7 +84,7 @@ header.archive-header a {
     animation: scroll 20s linear infinite;
     font-weight: 700;
     letter-spacing: 1px;
-    font-family: var(--font-primary);
+    font-family: 'Courier Prime', monospace;
 }
 
 @keyframes scroll {
@@ -115,4 +95,13 @@ header.archive-header a {
 /* Hide scrollbar */
 ::-webkit-scrollbar {
     display: none;
+}
+
+/* -------------------------------
+   Optional: Easy Color Variables
+---------------------------------*/
+:root {
+    --primary-color: #3b82f6; /* blue-500 */
+    --text-color: #111111;
+    --background-color: #ffffff;
 }
