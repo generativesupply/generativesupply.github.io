@@ -17,78 +17,33 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  cursor: pointer;
+  cursor: url('assets/cursor.png'), auto; /* custom cursor */
+}
+#header-logo {
+  display:none;
+}
+#header-title {
+  font-family: var(--font-header);
 }
 </style>
 </head>
-<body class="antialiased font-body bg-red-50">
+<body class="antialiased font-body bg-white cursor-auto">
 
 <!-- Header -->
-<header class="archive-header bg-white flex justify-between items-center">
-  <a href="index.html" class="text-3xl font-header font-bold">GEN_SUPPLY</a>
-  <nav><a href="index.html" class="hover:text-red-600">Home</a></nav>
+<header class="archive-header bg-white p-6 flex justify-between items-center">
+  <a href="index.html" id="header-title" class="text-3xl font-header font-bold">GEN_SUPPLY</a>
 </header>
 
-<main class="container mx-auto px-6 py-24 space-y-24">
-
-<!-- 4 Categories with 2024 & 2025 projects -->
-<!-- Repeat for each category -->
-<section>
-  <h2 class="text-2xl font-bold mb-6">3D Modelling — 2024</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/3d-modelling/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/3d-modelling/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-
-  <h2 class="text-2xl font-bold mt-8 mb-6">3D Modelling — 2025</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/3d-modelling/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/3d-modelling/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-</section>
-
-<section>
-  <h2 class="text-2xl font-bold mb-6">3D Visualization — 2024</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/3d-visualization/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/3d-visualization/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-
-  <h2 class="text-2xl font-bold mt-8 mb-6">3D Visualization — 2025</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/3d-visualization/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/3d-visualization/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-</section>
-
-<section>
-  <h2 class="text-2xl font-bold mb-6">Animation — 2024</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/animation/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/animation/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-
-  <h2 class="text-2xl font-bold mt-8 mb-6">Animation — 2025</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/animation/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/animation/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-</section>
-
-<section>
-  <h2 class="text-2xl font-bold mb-6">Real-Time Rendering — 2024</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/real-time-rendering/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/real-time-rendering/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-
-  <h2 class="text-2xl font-bold mt-8 mb-6">Real-Time Rendering — 2025</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <img src="assets/real-time-rendering/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
-    <img src="assets/real-time-rendering/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
-  </div>
-</section>
-
+<main class="container mx-auto px-6 py-12 space-y-12 bg-white">
+  <!-- Example Section: 3D Modelling 2024 -->
+  <section class="archive-section bg-white">
+    <h2 class="text-2xl font-bold mb-6">3D Modelling — 2024</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <img src="assets/3d-modelling/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
+      <img src="assets/3d-modelling/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
+    </div>
+  </section>
+  <!-- Repeat other categories and years similarly -->
 </main>
 
 <!-- Lightbox -->
@@ -98,7 +53,7 @@
 </div>
 
 <!-- Scrolling Contact Info -->
-<div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-red-200">
+<div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
   <div class="scrolling-text whitespace-nowrap">
     <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
     <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>

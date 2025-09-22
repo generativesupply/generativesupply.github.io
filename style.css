@@ -5,9 +5,8 @@
     --font-header: 'Courier Prime', monospace; /* Header font */
     --font-body: 'Courier Prime', monospace;   /* Body font */
     --color-primary: #111111;                  /* Main text color */
-    --color-secondary: #f63b3b;               /* Accent / hover color */
+    --color-secondary: #ff0101;               /* Accent / hover color */
     --color-bg: #ffffff;                       /* Background color */
-    --color-bg-alt: #ffffff;                  /* Alternate background */
 }
 
 /* ===============================
@@ -19,15 +18,19 @@ body {
     color: var(--color-primary);
     margin: 0;
     padding: 0;
+    cursor: url('assets/cursor.png'), auto; /* Custom cursor */
 }
 
+/* ===============================
+   Headings
+   =============================== */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-header);
     color: var(--color-primary);
 }
 
 /* ===============================
-   Links and Buttons
+   Links
    =============================== */
 a {
     color: var(--color-primary);
@@ -40,14 +43,15 @@ a:hover {
 }
 
 /* ===============================
-   Sidebar
+   Sidebar and Panels
    =============================== */
-.sidebar {
-    background-color: var(--color-bg);
-}
-
-.sidebar ul li:hover {
-    color: var(--color-secondary);
+.sidebar,
+.project-preview,
+.archive-section,
+.archive-header,
+nav {
+    background-color: var(--color-bg); /* Consistent white background */
+    border: none; /* Remove borders */
 }
 
 /* ===============================
@@ -58,15 +62,20 @@ a:hover {
     width: 100%;
     height: auto;
     object-fit: contain;  /* Keep original ratio */
-    cursor: pointer;
+    cursor: url('assets/cursor.png'), auto; /* Custom cursor */
 }
 
 /* ===============================
-   Header & Navigation
+   Header Logo Scroll Animation
    =============================== */
-.archive-header,
-nav {
-    font-family: var(--font-header);
+#header-logo {
+    transition: all 0.3s ease;
+}
+#header-title.scrolled {
+    display: none;
+}
+#header-logo.scrolled {
+    display: block;
 }
 
 /* ===============================
