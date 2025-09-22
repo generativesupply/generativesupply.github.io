@@ -1,133 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GEN_SUPPLY — Archive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEN_SUPPLY — Archive</title>
 
-  <!-- ✅ Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- ✅ Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- ✅ Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Icons -->
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased bg-gray-50">
+<body class="antialiased font-body bg-gray-50">
 
-  <!-- Header -->
-  <header class="archive-header fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-4xl font-bold">GEN_SUPPLY</a>
-      <nav>
-        <a href="archive.html" class="hover:text-gray-600">Archive</a>
-      </nav>
-    </div>
-  </header>
+<!-- Header -->
+<header class="archive-header bg-white shadow-md p-6 flex justify-between items-center">
+  <a href="index.html" class="text-3xl font-header font-bold">GEN_SUPPLY</a>
+  <nav><a href="index.html" class="hover:text-gray-600">Home</a></nav>
+</header>
 
-  <!-- Archive Grid -->
-  <main class="pt-24 pb-20 container mx-auto px-6">
-    <h1 class="text-3xl font-bold mb-10">Project Archive</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <img src="assets/preview1.jpg" alt="Architectural Visualization" class="archive-img" data-index="0">
-      <img src="assets/preview2.jpg" alt="Product Modeling" class="archive-img" data-index="1">
-      <img src="assets/preview3.jpg" alt="Animated Commercial" class="archive-img" data-index="2">
-      <img src="assets/preview4.jpg" alt="VR Experience" class="archive-img" data-index="3">
-      <img src="assets/preview5.jpg" alt="Character Design" class="archive-img" data-index="4">
-      <img src="assets/preview6.jpg" alt="Interactive Showroom" class="archive-img" data-index="5">
-    </div>
-  </main>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
-    <button id="closeBtn" class="absolute top-6 right-6 text-white text-3xl">&times;</button>
-    <button id="prevBtn" class="absolute left-6 text-white text-3xl">&#10094;</button>
-    <div class="text-center">
-      <img id="lightbox-img" src="" alt="" class="max-h-[80vh] max-w-[90vw]">
-      <p id="lightbox-caption" class="text-white mt-4"></p>
-    </div>
-    <button id="nextBtn" class="absolute right-6 text-white text-3xl">&#10095;</button>
+<main class="container mx-auto px-6 py-12">
+  <!-- Loop by category/year/project structure -->
+  <!-- Example for 3D Modelling -->
+  <h2 class="text-2xl font-bold mb-6">3D Modelling — 2024</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <img src="assets/3d-modelling/2024/project1/img1.jpg" class="archive-img" alt="3D Modelling Project 1">
+    <img src="assets/3d-modelling/2024/project2/img1.jpg" class="archive-img" alt="3D Modelling Project 2">
   </div>
 
-  <!-- Scrolling Contact Info -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
-    <div class="scrolling-text whitespace-nowrap">
-      <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
-      <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
-      <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
-      <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
-      <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
-    </div>
+  <h2 class="text-2xl font-bold mb-6">3D Modelling — 2025</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+    <img src="assets/3d-modelling/2025/project1/img1.jpg" class="archive-img" alt="3D Modelling Project 1">
+    <img src="assets/3d-modelling/2025/project2/img1.jpg" class="archive-img" alt="3D Modelling Project 2">
   </div>
 
-  <!-- Scripts -->
-  <script>
-    const images = [
-      { src: "assets/preview1.jpg", title: "Architectural Visualization", field: "3D Visualization" },
-      { src: "assets/preview2.jpg", title: "Product Modeling", field: "3D Modelling" },
-      { src: "assets/preview3.jpg", title: "Animated Commercial", field: "CG Animation" },
-      { src: "assets/preview4.jpg", title: "VR Experience", field: "Real Time / Game Engine" },
-      { src: "assets/preview5.jpg", title: "Character Design", field: "3D Modelling" },
-      { src: "assets/preview6.jpg", title: "Interactive Showroom", field: "Real Time / Game Engine" }
-    ];
+  <!-- Repeat similar sections for 3D Visualization, Animation, Real-Time Rendering -->
+</main>
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.getElementById('closeBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+  <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+  <img id="lightbox-img" src="" alt="Lightbox" class="max-w-3xl mx-auto">
+</div>
 
-    let currentIndex = 0;
+<!-- Scrolling Contact Info -->
+<div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
+  <div class="scrolling-text whitespace-nowrap">
+    <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
+    <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
+    <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
+    <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
+    <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
+  </div>
+</div>
 
-    document.querySelectorAll('.archive-img').forEach(img => {
-      img.addEventListener('click', () => {
-        currentIndex = parseInt(img.getAttribute('data-index'));
-        openLightbox(currentIndex);
-      });
-    });
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const archiveImgs = document.querySelectorAll('.archive-img');
 
-    function openLightbox(index) {
-      const image = images[index];
-      lightboxImg.src = image.src;
-      lightboxCaption.textContent = `${image.title} — ${image.field}`;
-      lightbox.classList.remove('hidden');
-      lightbox.classList.add('flex');
-    }
+archiveImgs.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+  });
+});
 
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.add('hidden');
-      lightbox.classList.remove('flex');
-    });
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.add('hidden');
+  lightbox.classList.remove('flex');
+});
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      openLightbox(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      openLightbox(currentIndex);
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === "Escape") closeBtn.click();
-      if (e.key === "ArrowLeft") prevBtn.click();
-      if (e.key === "ArrowRight") nextBtn.click();
-    });
-
-    feather.replace();
-  </script>
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox){
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+  }
+});
+</script>
 </body>
 </html>
