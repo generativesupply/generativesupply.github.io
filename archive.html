@@ -5,9 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GEN_SUPPLY — Archive</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.archive-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+</style>
 </head>
 <body class="antialiased font-body bg-gray-50">
 
@@ -17,28 +29,72 @@
   <nav><a href="index.html" class="hover:text-gray-600">Home</a></nav>
 </header>
 
-<main class="container mx-auto px-6 py-12">
-  <!-- Loop by category/year/project structure -->
-  <!-- Example for 3D Modelling -->
+<main class="container mx-auto px-6 py-12 space-y-12">
+
+<!-- 4 Categories with 2024 & 2025 projects -->
+<!-- Repeat for each category -->
+<section>
   <h2 class="text-2xl font-bold mb-6">3D Modelling — 2024</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-    <img src="assets/3d-modelling/2024/project1/img1.jpg" class="archive-img" alt="3D Modelling Project 1">
-    <img src="assets/3d-modelling/2024/project2/img1.jpg" class="archive-img" alt="3D Modelling Project 2">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/3d-modelling/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/3d-modelling/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
   </div>
 
-  <h2 class="text-2xl font-bold mb-6">3D Modelling — 2025</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-    <img src="assets/3d-modelling/2025/project1/img1.jpg" class="archive-img" alt="3D Modelling Project 1">
-    <img src="assets/3d-modelling/2025/project2/img1.jpg" class="archive-img" alt="3D Modelling Project 2">
+  <h2 class="text-2xl font-bold mt-8 mb-6">3D Modelling — 2025</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/3d-modelling/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/3d-modelling/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+</section>
+
+<section>
+  <h2 class="text-2xl font-bold mb-6">3D Visualization — 2024</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/3d-visualization/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/3d-visualization/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
   </div>
 
-  <!-- Repeat similar sections for 3D Visualization, Animation, Real-Time Rendering -->
+  <h2 class="text-2xl font-bold mt-8 mb-6">3D Visualization — 2025</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/3d-visualization/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/3d-visualization/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+</section>
+
+<section>
+  <h2 class="text-2xl font-bold mb-6">Animation — 2024</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/animation/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/animation/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+
+  <h2 class="text-2xl font-bold mt-8 mb-6">Animation — 2025</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/animation/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/animation/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+</section>
+
+<section>
+  <h2 class="text-2xl font-bold mb-6">Real-Time Rendering — 2024</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/real-time-rendering/2024/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/real-time-rendering/2024/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+
+  <h2 class="text-2xl font-bold mt-8 mb-6">Real-Time Rendering — 2025</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <img src="assets/real-time-rendering/2025/project1/img1.jpg" class="archive-img" alt="Project 1">
+    <img src="assets/real-time-rendering/2025/project2/img1.jpg" class="archive-img" alt="Project 2">
+  </div>
+</section>
+
 </main>
 
 <!-- Lightbox -->
 <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
   <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-  <img id="lightbox-img" src="" alt="Lightbox" class="max-w-3xl mx-auto">
+  <img id="lightbox-img" src="" alt="Lightbox" class="max-w-full max-h-full mx-auto">
 </div>
 
 <!-- Scrolling Contact Info -->

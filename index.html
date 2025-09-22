@@ -35,8 +35,9 @@
 </nav>
 
 <!-- Sidebar + Preview -->
-<div class="flex h-screen pt-20">
-  <div class="w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
+<div class="flex flex-col md:flex-row h-screen pt-20">
+  <!-- Sidebar -->
+  <div class="w-full md:w-1/4 bg-white border-r border-gray-200 overflow-y-auto p-6">
     <h2 class="text-2xl font-bold mb-8">Services</h2>
     <ul class="space-y-6">
       <li class="project-item cursor-pointer" data-project="1">
@@ -58,13 +59,13 @@
     </ul>
   </div>
 
+  <!-- Main Preview -->
   <div class="flex-1 flex items-center justify-center bg-gray-50">
     <div class="max-w-4xl w-full">
       <div class="project-preview">
         <img id="preview-image" src="assets/previews/preview1.jpg"
              alt="Project Preview"
-             class="w-full max-w-full shadow-xl bg-gray-100"
-             style="height: auto;">
+             class="w-full h-auto object-contain bg-gray-100">
       </div>
     </div>
   </div>

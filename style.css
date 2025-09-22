@@ -1,110 +1,82 @@
-/* -------------------------------
-   Google Fonts (load in <head>)
----------------------------------*/
-/* Example link to put in <head> of index.html & archive.html:
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-*/
-
-/* -------------------------------
-   Font & Color Variables
----------------------------------*/
+/* ===============================
+   Global Variables
+   =============================== */
 :root {
-    --font-primary: 'Courier Prime', monospace;  /* body */
-    --font-heading: 'Courier Prime', monospace;  /* header (customizable later) */
-
-    --primary-color: #EE4B2B; /* Tailwind blue-500 */
-    --text-color: #111111;
-    --background-color: #ffffff;
+    --font-header: 'Courier Prime', monospace; /* Header font */
+    --font-body: 'Courier Prime', monospace;   /* Body font */
+    --color-primary: #111111;                  /* Main text color */
+    --color-secondary: #f63b3b;               /* Accent / hover color */
+    --color-bg: #ffffff;                       /* Background color */
+    --color-bg-alt: #f9fafb;                  /* Alternate background */
 }
 
-/* -------------------------------
-   Base Styles
----------------------------------*/
+/* ===============================
+   Body and Typography
+   =============================== */
 body {
-    font-family: var(--font-primary);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    margin: 0;
+    padding: 0;
 }
 
-/* Links */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-header);
+    color: var(--color-primary);
+}
+
+/* ===============================
+   Links and Buttons
+   =============================== */
 a {
+    color: var(--color-primary);
     text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
-    color: var(--primary-color);
     transition: color 0.3s ease;
 }
 
-/* -------------------------------
-   Navigation & Header
----------------------------------*/
-nav a,
-header.archive-header a {
-    font-family: var(--font-heading);
-    font-weight: 700;
+a:hover {
+    color: var(--color-secondary);
 }
 
-/* -------------------------------
-   Sidebar Project Items
----------------------------------*/
-.project-item h3 {
-    font-family: var(--font-heading);
-    font-weight: 700;
+/* ===============================
+   Sidebar
+   =============================== */
+.sidebar {
+    background-color: var(--color-bg);
 }
 
-.project-item p {
-    font-family: var(--font-primary);
-    color: #EE4B2B;
+.sidebar ul li:hover {
+    color: var(--color-secondary);
 }
 
-.project-item:hover h3 {
-    color: var(--primary-color);
-}
-
-/* -------------------------------
-   Project Preview
----------------------------------*/
-.project-preview img {
-    transition: all 0.3s ease;
-    object-fit: cover;
-}
-
-/* -------------------------------
-   Archive Grid
----------------------------------*/
+/* ===============================
+   Project Preview & Archive Images
+   =============================== */
+.project-preview img,
 .archive-img {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 0;
-}
-
-/* -------------------------------
-   Archive Lightbox
----------------------------------*/
-#lightbox img {
-    max-width: 90%;
-    max-height: 80%;
-}
-
-#lightbox button {
-    background: none;
-    border: none;
+    height: auto;
+    object-fit: contain;  /* Keep original ratio */
     cursor: pointer;
 }
 
-/* -------------------------------
+/* ===============================
+   Header & Navigation
+   =============================== */
+.archive-header,
+nav {
+    font-family: var(--font-header);
+}
+
+/* ===============================
    Scrolling Contact Info
----------------------------------*/
+   =============================== */
 .scrolling-text {
     display: inline-block;
     animation: scroll 20s linear infinite;
     font-weight: 700;
     letter-spacing: 1px;
-    font-family: var(--font-primary);
 }
 
 @keyframes scroll {
@@ -112,7 +84,27 @@ header.archive-header a {
     100% { transform: translateX(-50%); }
 }
 
-/* Hide scrollbar */
+/* ===============================
+   Lightbox
+   =============================== */
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* ===============================
+   Scrollbar (hide for clean look)
+   =============================== */
 ::-webkit-scrollbar {
     display: none;
 }
