@@ -1,117 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GEN_SUPPLY — Home</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="style.css">
-
-<!-- Animations & Icons -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEN_SUPPLY — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased font-body">
+<body class="antialiased bg-white">
 
-<!-- Navigation / Header -->
-<nav class="fixed top-0 left-0 right-0 bg-white z-50">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="index.html" id="header-title" class="text-4xl font-header font-bold">GEN_SUPPLY</a>
-    <img id="header-logo" src="assets/logo.png" alt="Logo" class="h-12 hidden">
-    <div class="hidden md:flex space-x-8">
-      <a href="archive.html" class="hover:text-gray-600">Archive</a>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 bg-white z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Title and Logo -->
+      <a href="index.html" id="header-title" class="text-4xl font-header font-bold">GEN_SUPPLY</a>
+      <img id="header-logo" src="assets/logo.png" alt="Logo" class="h-12 hidden">
+
+      <!-- Navigation -->
+      <div class="hidden md:flex space-x-8">
+        <a href="archive.html" class="hover:text-gray-600">Archive</a>
+      </div>
+      <button class="md:hidden">
+        <i data-feather="menu"></i>
+      </button>
     </div>
-    <button class="md:hidden">
-      <i data-feather="menu"></i>
-    </button>
-  </div>
-</nav>
+  </nav>
 
-<!-- Sidebar + Preview -->
-<div class="flex flex-col md:flex-row h-screen pt-20 bg-white">
-  <!-- Sidebar -->
-  <div class="w-full md:w-1/4 bg-white overflow-y-auto p-6">
-    <h2 class="text-2xl font-bold mb-8">Services</h2>
-    <ul class="space-y-6">
-      <li class="project-item cursor-pointer" data-project="1">
-        <h3 class="text-lg font-medium">3D Modelling</h3>
-        <p class="text-sm text-gray-500">3D sculpting, parametric procedural modelling</p>
-      </li>
-      <li class="project-item cursor-pointer" data-project="2">
-        <h3 class="text-lg font-medium">3D Visualization</h3>
-        <p class="text-sm text-gray-500">Naturalistic renderings for funding or finished artwork</p>
-      </li>
-      <li class="project-item cursor-pointer" data-project="3">
-        <h3 class="text-lg font-medium">Animation</h3>
-        <p class="text-sm text-gray-500">Motion graphics and CGI compositing</p>
-      </li>
-      <li class="project-item cursor-pointer" data-project="4">
-        <h3 class="text-lg font-medium">Real-Time Rendering</h3>
-        <p class="text-sm text-gray-500">3D implementation in Game Engines</p>
-      </li>
-    </ul>
-  </div>
+  <!-- Sidebar and Preview Layout -->
+  <div class="flex flex-col md:flex-row h-screen pt-20 bg-white">
+    <!-- Sidebar with Categories -->
+    <div class="w-full md:w-1/4 bg-white overflow-y-auto p-6">
+      <h2 class="text-2xl font-bold mb-8">Services</h2>
+      <ul class="space-y-6">
+        <li class="project-item cursor-pointer" data-project="1">
+          <h3 class="text-lg font-medium">3D Modelling</h3>
+          <p class="text-sm text-gray-500">Objects & sculpting</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="2">
+          <h3 class="text-lg font-medium">3D Visualization</h3>
+          <p class="text-sm text-gray-500">Naturalistic rendering</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="3">
+          <h3 class="text-lg font-medium">Animation</h3>
+          <p class="text-sm text-gray-500">Motion graphics & CGI</p>
+        </li>
+        <li class="project-item cursor-pointer" data-project="4">
+          <h3 class="text-lg font-medium">Real Time Rendering</h3>
+          <p class="text-sm text-gray-500">Game Engines</p>
+        </li>
+      </ul>
+    </div>
 
-  <!-- Main Preview -->
-  <div class="flex-1 flex items-center justify-center bg-white">
-    <div class="max-w-4xl w-full">
-      <div class="project-preview">
-        <img id="preview-image" src="assets/previews/preview1.jpg"
-             alt="Project Preview"
-             class="w-full h-auto object-contain">
+    <!-- Main Preview Area -->
+    <div class="flex-1 flex items-center justify-center bg-white">
+      <div class="max-w-4xl w-full">
+        <div class="project-preview">
+          <img id="preview-image" src="assets/previews/preview1.jpg" 
+               alt="Project Preview" 
+               class="w-full h-auto object-contain">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Scrolling Contact Info -->
-<div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
-  <div class="scrolling-text whitespace-nowrap">
-    <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
-    <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
-    <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
-    <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
-    <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
+  <!-- Scrolling Contact Info -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden">
+    <div class="scrolling-text whitespace-nowrap">
+      <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
+      <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
+      <span class="text-lg font-medium mr-8">Twitter: @gensupply</span>
+      <span class="text-lg font-medium mr-8">Phone: +1 (555) 123-4567</span>
+      <span class="text-lg font-medium mr-8">Address: 123 Design St, Creative City</span>
+    </div>
   </div>
-</div>
 
-<!-- Scripts -->
-<script>
-const images = [
-  'assets/previews/preview1.jpg', // 3D Modelling
-  'assets/previews/preview2.jpg', // 3D Visualization
-  'assets/previews/preview3.jpg', // Animation
-  'assets/previews/preview4.jpg'  // Real-Time Rendering
-];
+  <!-- Scripts -->
+  <script>
+    // Preview image switching
+    document.querySelectorAll('.project-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        const images = [
+          'assets/previews/preview1.jpg',
+          'assets/previews/preview2.jpg',
+          'assets/previews/preview3.jpg',
+          'assets/previews/preview4.jpg'
+        ];
+        document.getElementById('preview-image').src = images[projectId - 1];
+      });
+    });
+  </script>
 
-document.querySelectorAll('.project-item').forEach(item => {
-  item.addEventListener('click', function() {
-    const projectId = parseInt(this.getAttribute('data-project'));
-    document.getElementById('preview-image').src = images[projectId - 1];
-  });
-});
+  <script>
+    // Scroll behavior for header
+    const headerTitle = document.getElementById('header-title');
+    const headerLogo = document.getElementById('header-logo');
 
-// Logo replacement on scroll
-const headerTitle = document.getElementById('header-title');
-const headerLogo = document.getElementById('header-logo');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
         headerTitle.classList.add('scrolled');
         headerLogo.classList.add('scrolled');
-    } else {
+      } else {
         headerTitle.classList.remove('scrolled');
         headerLogo.classList.remove('scrolled');
-    }
-});
+      }
+    });
+  </script>
 
-AOS.init({duration:800,easing:'ease-in-out',once:true});
-feather.replace();
-</script>
+  <script>
+    // Init AOS + Feather icons
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    feather.replace();
+  </script>
 </body>
 </html>
