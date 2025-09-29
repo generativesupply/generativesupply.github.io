@@ -1,10 +1,13 @@
-/* ========== FONT VARIABLES ========== */
+/* ========== VARIABLES ========== */
 :root {
     --font-header: 'Courier New', Courier, monospace;
     --font-body: 'Courier New', Courier, monospace;
+
     --color-primary: #000000;
     --color-secondary: #ff0000;
+
     --bg-color: #ffffff;
+    --lightbox-bg: rgba(0, 0, 0, 0.95);
 }
 
 /* ========== GENERAL ========== */
@@ -14,10 +17,10 @@ body {
     color: var(--color-primary);
     margin: 0;
     padding: 0;
-    cursor: url('assets/cursor.png'), auto; /* custom cursor */
+    cursor: url('assets/cursor/cursor.png'), auto; /* custom cursor */
 }
 
-/* Remove all default panel borders/boxes */
+/* remove all borders and unify bg */
 header, main, section, nav {
     border: none !important;
     background: var(--bg-color);
@@ -27,11 +30,13 @@ header, main, section, nav {
 header {
     font-family: var(--font-header);
     background: var(--bg-color);
+    transition: all 0.3s ease;
 }
 
 #header-logo {
     display: none;
-    transition: all 0.3s ease;
+    height: 40px;
+    transition: opacity 0.3s ease;
 }
 
 #header-title.scrolled {
@@ -40,32 +45,38 @@ header {
 
 #header-logo.scrolled {
     display: block;
+    opacity: 1;
 }
 
 /* ========== LANDING PAGE IMAGES ========== */
 .preview-img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    box-shadow: none; /* no shadow */
-    border-radius: 0; /* no rounded corners */
+    object-fit: contain; /* keep original ratio */
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    background: transparent;
 }
 
 /* ========== ARCHIVE GRID IMAGES ========== */
 .archive-img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain; /* keep original ratio */
     cursor: pointer;
-    border-radius: 0; /* no rounded corners */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
 }
 
-/* ========== LIGHTBOX SLIDESHOW ========== */
+/* ========== LIGHTBOX ========== */
 #lightbox {
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.9);
+    background-color: var(--lightbox-bg);
     align-items: center;
     justify-content: center;
     z-index: 100;
@@ -73,8 +84,8 @@ header {
 }
 
 #lightbox img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 /* Close button */
@@ -91,7 +102,7 @@ header {
 #prev-btn, #next-btn {
     position: absolute;
     top: 50%;
-    color: #ff0000;
+    color: var(--color-secondary);
     font-size: 40px;
     cursor: pointer;
     background: none;
@@ -104,7 +115,7 @@ header {
 #next-btn { right: 20px; }
 
 #prev-btn:hover, #next-btn:hover, #close-btn:hover {
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
 /* ========== SCROLLING CONTACT INFO ========== */
@@ -112,6 +123,9 @@ header {
     display: inline-block;
     padding-left: 100%;
     animation: scroll-left 20s linear infinite;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 @keyframes scroll-left {
