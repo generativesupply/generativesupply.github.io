@@ -4,71 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GEN_SUPPLY — Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="antialiased bg-white">
 
   <!-- Header -->
-  <header class="p-6 flex justify-between items-center">
-    <a href="index.html" id="header-title" class="text-3xl font-bold">GEN_SUPPLY</a>
-    <img id="header-logo" src="assets/logo/logo.png" alt="Logo" class="h-10">
+  <header class="archive-header bg-white p-6 flex justify-between items-center">
+    <!-- Title & Logo -->
+    <a href="index.html" id="header-title" class="text-3xl font-header font-bold">GEN_SUPPLY</a>
+    <img id="header-logo" src="assets/logo.png" alt="Logo" class="h-10 hidden">
+    <nav>
+      <a href="index.html" class="hover:text-gray-600">Home</a>
+    </nav>
   </header>
 
-  <!-- Archive Content -->
-  <main class="p-6">
-    <h1 class="text-2xl mb-6">Archive</h1>
-
-    <!-- 3D Modelling -->
-    <section class="archive-section">
-      <h2 class="text-xl font-bold mb-4">3D Modelling — 2024</h2>
+  <!-- Archive Main -->
+  <main class="container mx-auto px-6 py-12 space-y-12 bg-white">
+    <!-- Example: 3D Modelling -->
+    <section class="archive-section bg-white">
+      <h2 class="text-2xl font-bold mb-6">3D Modelling</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/3d-modelling/2024/project1/image1.png" class="archive-img" alt="3D Modelling 2024 Project 1">
-        <img src="assets/3d-modelling/2024/project2/image1.png" class="archive-img" alt="3D Modelling 2024 Project 2">
+        <img src="assets/3d-modelling/2024/project1/img1.jpg" alt="3D Modelling"
+             class="archive-img" onclick="openLightbox(['assets/3d-modelling/2024/project1/img1.jpg','assets/3d-modelling/2024/project1/img2.jpg','assets/3d-modelling/2024/project1/img3.jpg'],0)">
+        <img src="assets/3d-modelling/2025/project2/img1.jpg" alt="3D Modelling"
+             class="archive-img" onclick="openLightbox(['assets/3d-modelling/2025/project2/img1.jpg','assets/3d-modelling/2025/project2/img2.jpg'],0)">
       </div>
     </section>
 
-    <section class="archive-section mt-8">
-      <h2 class="text-xl font-bold mb-4">3D Modelling — 2025</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/3d-modelling/2025/project1/image1.png" class="archive-img" alt="3D Modelling 2025 Project 1">
-      </div>
-    </section>
-
-    <!-- 3D Visualization -->
-    <section class="archive-section mt-8">
-      <h2 class="text-xl font-bold mb-4">3D Visualization — 2024</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/3d-visualization/2024/project1/image1.png" class="archive-img" alt="3D Visualization 2024 Project 1">
-      </div>
-    </section>
-
-    <!-- Animation -->
-    <section class="archive-section mt-8">
-      <h2 class="text-xl font-bold mb-4">Animation — 2024</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/animation/2024/project1/image1.png" class="archive-img" alt="Animation 2024 Project 1">
-      </div>
-    </section>
-
-    <!-- Real Time Rendering -->
-    <section class="archive-section mt-8">
-      <h2 class="text-xl font-bold mb-4">Real-Time Rendering — 2024</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="assets/real-time-rendering/2024/project1/image1.png" class="archive-img" alt="Real-Time Rendering 2024 Project 1">
-      </div>
-    </section>
+    <!-- Add similar sections for Visualization, Animation, Real Time Rendering -->
   </main>
 
   <!-- Lightbox -->
   <div id="lightbox">
-    <span id="close-btn">&times;</span>
-    <button id="prev-btn">&#10094;</button>
-    <img id="lightbox-img" src="" alt="Expanded view">
-    <button id="next-btn">&#10095;</button>
+    <button id="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Fullscreen Preview">
+    <button id="next-btn" onclick="changeSlide(1)">&#10095;</button>
+    <span id="close-btn" onclick="closeLightbox()">&times;</span>
   </div>
 
   <!-- Scrolling Contact Info -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden border-t border-gray-200">
+  <div class="fixed bottom-0 left-0 right-0 bg-white text-black py-4 overflow-hidden">
     <div class="scrolling-text whitespace-nowrap">
       <span class="text-lg font-medium mr-8">Contact: hello@gensupply.com</span>
       <span class="text-lg font-medium mr-8">Instagram: @gensupply</span>
@@ -80,38 +59,60 @@
 
   <!-- Scripts -->
   <script>
-    const archiveImages = document.querySelectorAll('.archive-img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('close-btn');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    // Scroll behavior for header
+    const headerTitle = document.getElementById('header-title');
+    const headerLogo = document.getElementById('header-logo');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        headerTitle.classList.add('scrolled');
+        headerLogo.classList.add('scrolled');
+      } else {
+        headerTitle.classList.remove('scrolled');
+        headerLogo.classList.remove('scrolled');
+      }
+    });
+
+    // Lightbox slideshow
     let currentIndex = 0;
+    let currentImages = [];
 
-    const imageArray = Array.from(archiveImages).map(img => img.src);
+    function openLightbox(images, index) {
+      currentImages = images;
+      currentIndex = index;
+      document.getElementById('lightbox').style.display = 'flex';
+      document.getElementById('lightbox-img').src = currentImages[currentIndex];
+    }
 
-    archiveImages.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-        currentIndex = index;
-      });
-    });
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      currentImages = [];
+    }
 
-    closeBtn.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
+    function changeSlide(direction) {
+      if (!currentImages.length) return;
+      currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
+      document.getElementById('lightbox-img').src = currentImages[currentIndex];
+    }
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-      lightboxImg.src = imageArray[currentIndex];
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % imageArray.length;
-      lightboxImg.src = imageArray[currentIndex];
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      if (document.getElementById('lightbox').style.display === 'flex') {
+        if (event.key === 'ArrowRight') changeSlide(1);
+        if (event.key === 'ArrowLeft') changeSlide(-1);
+        if (event.key === 'Escape') closeLightbox();
+      }
     });
   </script>
 
+  <script>
+    // Init AOS + Feather icons
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    feather.replace();
+  </script>
 </body>
 </html>
